@@ -16,27 +16,24 @@
   <meta name="author" content="XIII">
   <meta name="keywords" content="Note assignment kigurumi kig">
   
-    <meta name="description" content="潜水员戴夫，堂堂完结！感觉好久没有认真的通关一款游戏了，所以最近花了15.4h把他通关了（绝对不是因为太上头）。整体而言游玩体验不错，除了后期操作重复赶路慢还有各种有病的拖时间操作以外， 画风清新正反馈很好开店也很爽（妹子也很好看）还有各种吃的，总之就是把好东西都给你了，开发商能有什么坏心思呢？他只是想让你玩得高兴（还有赚钱）而已。 反正流程不长，玩了不亏更何况我是白嫖的。 P.S. 最后的小彩蛋">
+    <meta name="description" content="Language Model相对于分类、生成等任务中将语言看作 词的集合或向量， 语言模型中将文本作为 词的序列  通过估计条件概率进行预测  n-gram: 只考虑前面n个单词的影响（作为概率的条件） RNN Transformer：将一些上文需要关注的单词作为条件（注意力机制） ？  LM的特殊处理unknown word构建token &lt;UNK&gt;,   构建词表 检索训练文本中不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="潜水员戴夫，堂堂完结！">
-<meta property="og:url" content="http://pandragonxiii.github.io/uncategorized/dave-the-diver/">
+<meta property="og:title" content="CS274A-Language Model">
+<meta property="og:url" content="http://pandragonxiii.github.io/note/CS274A/CS274A/Language-Model/">
 <meta property="og:site_name" content="Utopia">
-<meta property="og:description" content="潜水员戴夫，堂堂完结！感觉好久没有认真的通关一款游戏了，所以最近花了15.4h把他通关了（绝对不是因为太上头）。整体而言游玩体验不错，除了后期操作重复赶路慢还有各种有病的拖时间操作以外， 画风清新正反馈很好开店也很爽（妹子也很好看）还有各种吃的，总之就是把好东西都给你了，开发商能有什么坏心思呢？他只是想让你玩得高兴（还有赚钱）而已。 反正流程不长，玩了不亏更何况我是白嫖的。 P.S. 最后的小彩蛋">
+<meta property="og:description" content="Language Model相对于分类、生成等任务中将语言看作 词的集合或向量， 语言模型中将文本作为 词的序列  通过估计条件概率进行预测  n-gram: 只考虑前面n个单词的影响（作为概率的条件） RNN Transformer：将一些上文需要关注的单词作为条件（注意力机制） ？  LM的特殊处理unknown word构建token &lt;UNK&gt;,   构建词表 检索训练文本中不">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://pandragonxiii.github.io/uncategorized/dave-the-diver/20240313215442_1.jpg">
-<meta property="og:image" content="http://pandragonxiii.github.io/uncategorized/dave-the-diver/20240313213504_1.jpg">
-<meta property="article:published_time" content="2024-03-13T13:58:44.000Z">
-<meta property="article:modified_time" content="2024-03-13T14:18:06.033Z">
+<meta property="article:published_time" content="2024-03-14T00:28:07.000Z">
+<meta property="article:modified_time" content="2024-03-14T01:55:39.004Z">
 <meta property="article:author" content="XIII">
-<meta property="article:tag" content="game">
+<meta property="article:tag" content="note NLP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://pandragonxiii.github.io/uncategorized/dave-the-diver/20240313215442_1.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>潜水员戴夫，堂堂完结！ - Utopia</title>
+  <title>CS274A-Language Model - Utopia</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="潜水员戴夫，堂堂完结！"></span>
+            <span id="subtitle" data-typed-text="CS274A-Language Model"></span>
           
         </div>
 
@@ -213,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-13 21:58" pubdate>
-          2024年3月13日 晚上
+        <time datetime="2024-03-14 08:28" pubdate>
+          2024年3月14日 早上
         </time>
       </span>
     
@@ -225,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          302 字
+          621 字
         
       </span>
     
@@ -236,7 +233,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -273,19 +270,68 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">潜水员戴夫，堂堂完结！</h1>
+            <h1 id="seo-header">CS274A-Language Model</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="潜水员戴夫，堂堂完结！"><a href="#潜水员戴夫，堂堂完结！" class="headerlink" title="潜水员戴夫，堂堂完结！"></a>潜水员戴夫，堂堂完结！</h1><p><img src="/uncategorized/dave-the-diver/20240313215442_1.jpg" srcset="/img/loading.gif" lazyload alt="完结撒花"><br>感觉好久没有认真的通关一款游戏了，所以最近花了15.4h把他通关了（绝对不是因为太上头）。整体而言游玩体验不错，<del>除了后期操作重复赶路慢还有各种有病的拖时间操作以外</del>，</p>
-<p>画风清新正反馈很好开店也很爽（妹子也很好看）还有各种吃的，总之就是把好东西都给你了，开发商能有什么坏心思呢？他只是想让你玩得高兴（还有赚钱）而已。</p>
-<p>反正流程不长，玩了不亏<del>更何况我是白嫖的</del>。</p>
-<p><em>P.S. 最后的小彩蛋还挺有意思的，就像寿司里的青芥末激发出了游戏通关的喜悦</em><br><img src="/uncategorized/dave-the-diver/20240313213504_1.jpg" srcset="/img/loading.gif" lazyload alt="我在海底打车万.jpg"></p>
-<p><em>P.P.S 今天刚在群里看完东方的meme，晚上就打上了，你有什么头猪吗</em> </p>
+                <h1 id="Language-Model"><a href="#Language-Model" class="headerlink" title="Language Model"></a>Language Model</h1><p>相对于分类、生成等任务中将语言看作 <strong>词的集合或向量</strong>， 语言模型中将文本作为 <strong>词的序列</strong> </p>
+<p>通过估计条件概率进行预测</p>
+<ul>
+<li>n-gram: 只考虑前面n个单词的影响（作为概率的条件）</li>
+<li>RNN</li>
+<li>Transformer：将一些上文需要关注的单词作为条件（注意力机制）</li>
+<li>？</li>
+</ul>
+<h3 id="LM的特殊处理"><a href="#LM的特殊处理" class="headerlink" title="LM的特殊处理"></a>LM的特殊处理</h3><h5 id="unknown-word"><a href="#unknown-word" class="headerlink" title="unknown word"></a>unknown word</h5><p>构建token <code>&lt;UNK&gt;</code>, </p>
+<ol>
+<li>构建词表</li>
+<li>检索训练文本中不在词表中的词<ol>
+<li>较多的词添加到词表</li>
+<li>较少的词换成<code>&lt;UNK&gt;</code></li>
+</ol>
+</li>
+<li>正常训练</li>
+</ol>
+<p>也可以从字符&#x2F;sub word 层面构建语言模型，避免生词出现</p>
+<h3 id="LM的评估"><a href="#LM的评估" class="headerlink" title="LM的评估"></a>LM的评估</h3><p>Extrinsic: 针对下游任务，同前</p>
+<p>Intrinsic: </p>
+<h4 id="Perplexity"><a href="#Perplexity" class="headerlink" title="Perplexity"></a>Perplexity</h4><p>困惑度：LM应该对没见过的真实句子给出较高的分数</p>
+<p>For test data $\bar x_{1:m}$ (m sentences):</p>
+<p>average log-probability per word of $\bar x_{1:m}$ is<br>$$<br>l&#x3D;-\frac1M\sum_{i&#x3D;1}^m\log_2p(\bar x_i)<br>$$<br>if $M&#x3D;\sum_{i&#x3D;1}^m|\bar x_i|$ </p>
+<p>perplexity&#x3D; $2^l$ </p>
 <blockquote>
-<p><strong>碎碎念</strong><br>希望这款游戏能开个好头，恢复花时间体会好作品的兴趣和能力<br>作为新博客发的第一篇帖，还挺有纪念意义的w<br>之后有时间的话希望能继续更游戏、gal、番、书的完结贴吧，咕<br>以上</p>
+<p>在信息论中表达了编码所需的最小bit数</p>
 </blockquote>
+<p>即希望用尽量少的词得到概率尽量大的一系列词（来对信息进行编码）</p>
+<p>例</p>
+<ul>
+<li>如果训练数据概率为1，困惑度&#x3D;1</li>
+<li>如果&#x3D;0，困惑度&#x3D;$\infty$</li>
+</ul>
+<p>&#x3D;&#x3D;注意&#x3D;&#x3D;: 困惑度受词表影响</p>
+<hr>
+<h2 id="N-gram-Model"><a href="#N-gram-Model" class="headerlink" title="N-gram Model"></a>N-gram Model</h2><p>如果n&#x3D;1，为Unigram model，即每个单词相互独立</p>
+<p>用MLE，概率&#x3D;序列出现次数&#x2F;序列前n出现次数</p>
+<p>问题：数据稀疏</p>
+<p>利用平滑</p>
+<h4 id="Back-off"><a href="#Back-off" class="headerlink" title="Back-off"></a>Back-off</h4><p>如果当前n-gram的效果不好，那么就用n+1gram</p>
+<h4 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h4><p>线性插值</p>
+<p>将不同n值的n-gram分别估算概率然后加权平均</p>
+<h3 id="生成式"><a href="#生成式" class="headerlink" title="生成式"></a>生成式</h3><p>Auto-aggressive generate</p>
+<p>语法通顺但语义不行(incoherent)。</p>
+<blockquote>
+<p>fixed-window neural LM</p>
+<p>n-gram的神经网络实现：将词向量连接后过线性变换和激活函数</p>
+<p>用神经网络记住参数，不用对所有组合记录概率</p>
+<p>同时由于同类词语可能具有类似的embedding，泛化能力更好（神经网络是平滑的，类似的输入带来类似的输出）</p>
+</blockquote>
+<h2 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h2><p>每一个时刻的新隐向量都根据上一个时刻的隐向量和新的word embedding得到</p>
+<h4 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h4><p>MLE</p>
+<p>计算真实分布$y^{(t)}$和 $\hat y^{(t)}$的cross entropy 作为loss（真实分布是one-hot的）</p>
+<p>等同于最大化所有位置正确单词的概率</p>
+<p><strong>问题</strong>：梯度消失&#x2F;梯度爆炸</p>
+<p>梯度爆炸导致更新步长过大；解决方案：gradient clipping：梯度大于阈值时设置为上限值</p>
 
                 
               </div>
@@ -294,11 +340,39 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/note/" class="category-chain-item">note</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/note/CS274A/" class="category-chain-item">CS274A</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/game/" class="print-no-link">#game</a>
+        <a href="/tags/note-NLP/" class="print-no-link">#note NLP</a>
       
     </div>
   
@@ -310,8 +384,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>潜水员戴夫，堂堂完结！</div>
-      <div>http://pandragonxiii.github.io/uncategorized/dave-the-diver/</div>
+      <div>CS274A-Language Model</div>
+      <div>http://pandragonxiii.github.io/note/CS274A/CS274A/Language-Model/</div>
     </div>
     <div class="license-meta">
       
@@ -323,7 +397,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月13日</div>
+          <div>2024年3月14日</div>
         </div>
       
       
@@ -355,18 +429,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/note/CS274A/CS274A/Language-Model/" title="CS274A-Language Model">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CS274A-Language Model</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/uncategorized/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/uncategorized/dave-the-diver/" title="潜水员戴夫，堂堂完结！">
+                        <span class="hidden-mobile">潜水员戴夫，堂堂完结！</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

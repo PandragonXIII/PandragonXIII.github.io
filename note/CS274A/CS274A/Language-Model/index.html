@@ -24,7 +24,7 @@
 <meta property="og:description" content="Language Model 相对于分类、生成等任务中将语言看作 词的集合或向量， 语言模型中将文本作为 词的序列 通过估计条件概率进行预测  n-gram: 只考虑前面n个单词的影响（作为概率的条件） RNN Transformer：将一些上文需要关注的单词作为条件（注意力机制） ？  LM的特殊处理 unknown word 构建token &lt;UNK&gt;,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-14T00:28:07.000Z">
-<meta property="article:modified_time" content="2024-03-20T06:13:57.082Z">
+<meta property="article:modified_time" content="2024-03-21T01:24:45.206Z">
 <meta property="article:author" content="XIII">
 <meta property="article:tag" content="note NLP">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          604 字
+          955 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          6 分钟
+          8 分钟
         
       </span>
     
@@ -353,6 +353,49 @@ class="math inline">\(\hat y^{(t)}\)</span>的cross entropy
 <p><strong>问题</strong>：梯度消失/梯度爆炸</p>
 <p>梯度爆炸导致更新步长过大；解决方案：gradient
 clipping：梯度大于阈值时设置为上限值</p>
+<h3 id="lstm">LSTM</h3>
+<h2 id="attention">Attention</h2>
+<p>对每一个state相对于当前state计算一个attention
+score，用其值做加权平均得到一个综合的新state，包含更多需要注意的state</p>
+<h4 id="masking">masking</h4>
+<p>对于将来的词（不应该被看到），将attention score设为<span
+class="math inline">\(-\infty\)</span></p>
+<h3 id="multi-head-attention">Multi-head attention</h3>
+<p>将key-value-query 线性映射到不同空间，得到多种注意力</p>
+<p>对过长的输入也只关心一定长度内的历史</p>
+<h3 id="在transformer上的attention">在Transformer上的attention</h3>
+<p>利用positioning embedding保留词的位置信息；</p>
+<ul>
+<li>问题：词的含义可能与位置无关；长度外推性（不能处理没见过的绝对长度）</li>
+</ul>
+<p><strong>相对位置编码</strong>：即两个词之间的长度，有上界k</p>
+<p>加在key和value上</p>
+<h5 id="rope">RoPE</h5>
+<p>旋转位置编码</p>
+<p>对于多层的self-attention
+网络，多次线性变换其实可以用一次线性变换代替，因此没有意义</p>
+<p>所以引入非线性：在每层做完 attention 后过两层神经网络
+(feed-forward)</p>
+<blockquote>
+<p>一般是先升维再降维（4倍）</p>
+</blockquote>
+<blockquote>
+<p>Feed-forward层也可以被解释为某种全局的attention/ global memory</p>
+</blockquote>
+<p><strong>残差connection</strong></p>
+<p>提供跨国多层保留信息的渠道，函数更平衡</p>
+<p><span class="math inline">\(x_{n+1}=F(x)+x\)</span></p>
+<p><strong>Layer Normalization</strong></p>
+<p>算完self-attention/feed forward
+后进行标准化，避免前面层输出变化影响后面已经训练好的参数</p>
+<h4 id="complexity">Complexity</h4>
+<p><span class="math inline">\((QK^T)V\)</span> -&gt; <span
+class="math inline">\(O(T^2d_k)\)</span></p>
+<ol type="1">
+<li>sparse attention:只关注开头和最近的部分token</li>
+<li>Linear attention: 去掉（用核函数近似）softmax后 用交换律达到 <span
+class="math inline">\(O(Td_k^2)\)</span></li>
+</ol>
 
                 
               </div>

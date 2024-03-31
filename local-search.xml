@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>weekly-report</title>
+    <link href="/uncategorized/weekly-report/"/>
+    <url>/uncategorized/weekly-report/</url>
+    
+    <content type="html"><![CDATA[<!-- slide --><h2 id="本周完成事项">本周完成事项</h2><ul><li>初步了解了llava的组成部分和代码结构<ul><li>在服务器部署了llava-1.5-7b-hf</li><li>拆分出embedding部分</li></ul></li><li>初步测试 malicious text &amp; benign text v.s. adversarialimage(熊猫) 的 cosine similarity<ul><li>文本部分采用在MMLU和harmbench各40个text input</li><li>发现两者表现出一定的差异(如下图)</li></ul></li></ul><p><img src="analysis2.png" alt="embeddings" /> <imgsrc="different-pic-result.png" alt="analysis" />左图：直方图展示两类text与img-16的cosine similarity分布;以及类别内均值和标准差 右图：展示 两类文本v.s.五张图片的cosinesimilarity；其中红线表达两者<strong>均值之差</strong>的变化趋势</p><!-- slide --><h2 id="下周计划">下周计划</h2><ul><li>部署denoiser</li><li>分析denoise后图像与text的cosine similarity变化情况</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>report, ASPIRE, MLLM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>CS274A-Language Model</title>
     <link href="/note/CS274A/CS274A/Language-Model/"/>
     <url>/note/CS274A/CS274A/Language-Model/</url>
@@ -67,6 +86,17 @@
   
   <entry>
     <title>about</title>
+    <link href="/"/>
+    <url>/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Gallery</title>
     <link href="/"/>
     <url>/</url>
     

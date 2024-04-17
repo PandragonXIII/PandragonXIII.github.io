@@ -19,17 +19,17 @@
     <meta name="description" content="本周完成事项  初步了解了llava的组成部分和代码结构  在服务器部署了llava-1.5-7b-hf 拆分出embedding部分  初步测试 malicious text &amp; benign text v.s. adversarial image(熊猫) 的 cosine similarity  文本部分采用在MMLU和harmbench各40个text inp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="llava-embedding">
-<meta property="og:url" content="http://pandragonxiii.github.io/report/llava-embedding/">
+<meta property="og:url" content="http://blog.madmiku.fun/report/llava-embedding/">
 <meta property="og:site_name" content="Utopia">
 <meta property="og:description" content="本周完成事项  初步了解了llava的组成部分和代码结构  在服务器部署了llava-1.5-7b-hf 拆分出embedding部分  初步测试 malicious text &amp; benign text v.s. adversarial image(熊猫) 的 cosine similarity  文本部分采用在MMLU和harmbench各40个text inp">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://pandragonxiii.github.io/report/llava-embedding/analysis2.png">
+<meta property="og:image" content="http://blog.madmiku.fun/report/llava-embedding/analysis2.png">
 <meta property="article:published_time" content="2024-03-31T14:30:01.000Z">
 <meta property="article:modified_time" content="2024-03-31T14:34:59.910Z">
 <meta property="article:author" content="XIII">
 <meta property="article:tag" content="report, ASPIRE">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://pandragonxiii.github.io/report/llava-embedding/analysis2.png">
+<meta name="twitter:image" content="http://blog.madmiku.fun/report/llava-embedding/analysis2.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"pandragonxiii.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"blog.madmiku.fun","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -371,7 +371,7 @@ similarity；其中红线表达两者<strong>均值之差</strong>的变化趋�
   <div class="license-box my-3">
     <div class="license-title">
       <div>llava-embedding</div>
-      <div>http://pandragonxiii.github.io/report/llava-embedding/</div>
+      <div>http://blog.madmiku.fun/report/llava-embedding/</div>
     </div>
     <div class="license-meta">
       

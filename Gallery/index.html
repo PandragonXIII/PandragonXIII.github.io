@@ -1,15 +1,127 @@
+<!doctype html>
+<!-- <div style="position: relative; padding: 30% 45%;">
+    <iframe 
+    style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" 
+    src="//player.bilibili.com/player.html?aid=1152932500&bvid=BV1YZ421e7BB&cid=1499097259&p=0&as_wide=1" 
+    scrolling="no" 
+    border="0"
+    frameborder="no" 
+    framespacing="0" 
+    allowfullscreen="true" 
+    autoplay="0"
+    muted="1"
+    > </iframe>
+</div> -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML+CSS+JavaScript实现网页广告</title>    
+    <style type="text/css">
+      *{
+  	      margin:0px;
+  	      padding:0px;
+      }
+      #ad{
+          width:534px;	/*tanwanlanyue.png宽534px，高270px*/
+          position:fixed;	/*相对于浏览器窗口进行绝对定位*/
+          top:50%;
+  	      left:50%;
+  	      transform:translate(-50%,-50%);
+      }
+      #ad #post{
+   	      height:270px;	/*tanwanlanyue.png宽534px，高270px*/
+      }
+      #ad #close{
+ 	      height:15px;
+      }
+      #ad #close img{
+    	  float:right;	/*关闭键close_img右浮*/
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 播放ALL!!! -->
+    <audio controls="controls" autoplay id="ALL" loop>
+        <source src="/audio/ALL!.mp3" type="audio/mpeg">
+      您的浏览器不支持 audio 元素。
+    </audio>
+    <!-- 自动播放 -->
+    <script type="text/javascript">
+        window.onload = function(){
+                 setInterval("toggleSound()",100);
+            }
+    
+        function toggleSound() {
+                    var music = document.getElementById("ALL");//获取ID  
+                        
+                    if (music.paused) { //判读是否播放  
+                        music.paused=false;
+                        music.play(); //没有就播放 
+                    }    
+            }
+    </script>
+    
+    <!-- ad中包含【海报】和【关闭键】两部分 -->
+    <div id="ad">
+      <!-- 海报 -->
+      <div id="post">
+        <img src="/img/small_pic.png" />
+      </div>
+      <!-- 关闭键 -->
+      <div id="close">
+        <img id="close_img" src="/img/mizuki2.png" width="15px" height="15px" />
+      </div>      
+    </div>
+    <img src="/img/long_page.jpg" alt="poster">
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+  </body>
 
-<div style="position: relative; padding: 30% 45%;">
-<iframe 
-style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" 
-src="//player.bilibili.com/player.html?aid=1152932500&bvid=BV1YZ421e7BB&cid=1499097259&p=0&as_wide=1" 
-scrolling="no" 
-border="0"
-frameborder="no" 
-framespacing="0" 
-allowfullscreen="true" 
-autoplay="0"
-muted="1"
-> </iframe>
-</div>
 
+  <script type="text/javascript">
+    var close = document.getElementById("close_img");
+    var ad = document.getElementById("ad");
+    //关闭广告
+    close.onclick = function(){
+      ad.style.display = "none";
+    }
+  </script>
+</html>

@@ -2,7 +2,7 @@
 <!-- <div style="position: relative; padding: 30% 45%;">
     <iframe 
     style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" 
-    src="//player.bilibili.com/player.html?aid=1152932500&bvid=BV1YZ421e7BB&cid=1499097259&p=0&as_wide=1" 
+    src="https://player.bilibili.com/player.html?aid=1152932500&bvid=BV1YZ421e7BB&cid=1499097259&p=0&as_wide=1" 
     scrolling="no" 
     border="0"
     frameborder="no" 
@@ -14,8 +14,10 @@
 </div> -->
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>HTML+CSS+JavaScript实现网页广告</title>    
+    <meta charset="UTF-8"
+		name="viewport" 
+		content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>好得不能再好了！泰拉投资大师课</title>    
     <style type="text/css">
       *{
   	      margin:0px;
@@ -37,20 +39,31 @@
       #ad #close img{
     	  float:right;	/*关闭键close_img右浮*/
       }
+	  #side-ad {
+		  position: fixed;
+		  top: 50%;
+		  left: 0;
+		  transform: translateY(-50%);
+		  z-index: 999;
+	  }
+	  #side-ad img {
+		  width: 276px;
+		  height: 112px;
+	  }
+
     </style>
   </head>
   <body>
     <!-- 播放ALL!!! -->
-    <audio controls="controls" autoplay id="ALL" loop>
+    <audio autoplay id="ALL" loop>
         <source src="/audio/ALL!.mp3" type="audio/mpeg">
       您的浏览器不支持 audio 元素。
     </audio>
     <!-- 自动播放 -->
     <script type="text/javascript">
-        window.onload = function(){
+        window.onload=function(){
                  setInterval("toggleSound()",100);
             }
-    
         function toggleSound() {
                     var music = document.getElementById("ALL");//获取ID  
                         
@@ -65,54 +78,21 @@
     <div id="ad">
       <!-- 海报 -->
       <div id="post">
-        <img src="/img/small_pic.png" />
+        <img src="/img/mizuki.png"/>
       </div>
       <!-- 关闭键 -->
       <div id="close">
         <img id="close_img" src="/img/mizuki2.png" width="15px" height="15px" />
       </div>      
     </div>
-    <img src="/img/long_page.jpg" alt="poster">
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
-    <h1>HTML+CSS+JavaScript实现网页广告</h1>
+	<!-- 左侧悬浮框 -->
+	<div id="side-ad">
+		<img src="/img/small_pic.png" alt="left ad">
+		左侧边栏
+	</div>
+
+    <img src="/img/long_page.jpg" width="100%" alt="poster">
+	<img src="/img/LGD.png" width="100%" alt="LGD warning">
   </body>
 
 

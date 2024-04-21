@@ -3,22 +3,23 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Utopia
 subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
-timezone: ''
+description: 'a site of the past'
+keywords: Note assignment kigurumi kig
+author: XIII
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://PandragonXIII.github.io/
-permalink: :year/:month/:day/:title/
+url: http://blog.madmiku.fun/
+permalink: :category/:title/
 permalink_defaults:
+  category: other
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -40,7 +41,10 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -92,6 +96,15 @@ pagination_dir: page
 include:
 exclude:
 ignore:
+# general setting
+- "**/HW" # ignore homework floder
+- "**/*.pdf"
+- "**/*.docx"
+- "**/*.pptx"
+- "**/*.zip"
+- "**/*.txt"
+# specific
+- "**/ASFR"
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
@@ -102,5 +115,5 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/PandragonXIII/PandragonXIII.github.io.git
+  repository: http://github.com/PandragonXIII/PandragonXIII.github.io.git
   branch: main

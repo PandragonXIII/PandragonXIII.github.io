@@ -23,15 +23,27 @@
   	      margin:0px;
   	      padding:0px;
       }
+      #invite { /* 来自坎诺特的邀请弹窗 */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 30%;
+        text-align: center;
+      }
       #ad{
-          width:534px;	/*tanwanlanyue.png宽534px，高270px*/
+          width:382px;	/*tanwanlanyue.png宽534px，高270px*/
           position:fixed;	/*相对于浏览器窗口进行绝对定位*/
           top:50%;
   	      left:50%;
   	      transform:translate(-50%,-50%);
       }
       #ad #post{
-   	      height:270px;	/*tanwanlanyue.png宽534px，高270px*/
+   	      height:382px;	/*tanwanlanyue.png宽534px，高270px*/
       }
       #ad #close{
  	      height:15px;
@@ -44,7 +56,7 @@
 		  top: 20%;
 		  left: 0;
 		  transform: translateY(-50%);
-		  z-index: 999;
+		  z-index: 998;
 	  }
 	  #side-ad img {
 		  width: 276px;
@@ -54,7 +66,7 @@
       position: fixed;
       bottom: 0;
       left: 0;
-      z-index: 999;
+      z-index: 998;
       width: 100%;
       height: 17%;
     }
@@ -67,6 +79,15 @@
     </style>
   </head>
   <body>
+    <!-- 来自坎诺特的邀请 -->
+    <dialog open id="invite">
+      <p>你收到了一封来自坎诺特的邀请函，是否接受？</p>
+      <form method="dialog">
+        <button>是</button>
+        <button>yes</button>
+      </form>
+    </dialog>
+    
     <!-- 播放ALL!!! -->
     <audio autoplay id="ALL">
         <source src="/audio/ALL!.mp3" type="audio/mpeg">
@@ -111,6 +132,8 @@
   <div id="bottom-ad">
     <img src="/img/bottom_pic.png" alt="bottom ad">
   </div>
+  <!-- white space -->
+  <div style="height: 20%;"></div>
 
 
   </body>

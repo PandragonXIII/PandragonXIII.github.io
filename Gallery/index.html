@@ -23,20 +23,31 @@
   	      margin:0px;
   	      padding:0px;
       }
+      .button {
+        background-color: #303030 ;
+        border: 3px solid;
+        color: white;
+        width: 450px;
+        height: 45px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+      }
       #invite { /* 来自坎诺特的邀请弹窗 */
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 999;
-        background-color: white;
+        background-color: gray;
         padding: 20px;
         border-radius: 10px;
         width: 40%;
         text-align: center;
       }
       #ad{
-          width:80%;  /*海报宽度80%*/
+          width:auto;  /*海报宽度80%*/
           position:fixed;	/*相对于浏览器窗口进行绝对定位*/
           top:50%;
   	      left:50%;
@@ -82,9 +93,10 @@
     <!-- 来自坎诺特的邀请 -->
     <dialog open id="invite">
       <p>你收到了一封来自坎诺特的邀请函，是否接受？</p>
+      <br>
       <form method="dialog">
-        <button>是</button>
-        <button>yes</button>
+        <button class="button">是</button><br><br>
+        <button class="button">yes</button>
       </form>
     </dialog>
     
@@ -116,7 +128,7 @@
       </div>
       <!-- 关闭键 -->
       <div id="close">
-        <img id="close_img" src="/img/mizuki2.png" width="15px" height="15px" />
+        <img id="close_img" src="/img/close.png" width="15px" height="15px" />
       </div>      
     </div>
 	<!-- 左侧悬浮框 -->
@@ -128,7 +140,7 @@
   <!-- 页面底部警告信息 -->
 	<img src="/img/LGD.png" width="100%" alt="LGD warning">
   <!-- white space -->
-  <div style="height: 30%;"></div>
+  <div style="height: 200px;"></div>
   <!-- 底部面板 -->
   <div id="bottom-ad">
     <img src="/img/bottom_pic.png" alt="bottom ad">

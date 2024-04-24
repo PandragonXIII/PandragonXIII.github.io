@@ -183,7 +183,12 @@
   <button onclick="play_video()">开始播放</button>
   <script>
    function play_video(){
+    if (navigator.userAgent.indexOf("Firefox")){
+      // 弹出提示框
+      alert("火狐用户请使用桌面版网站以获得最佳体验")
+    }
      document.getElementById("video_window iframe").style.display = "block";
+     document.getElementById("video_window iframe").play();
    }
   </script>
   <!-- 主页面 -->

@@ -28,7 +28,7 @@ layout: false
   	      margin:0px;
   	      padding:0px;
       }
-      .button {
+      .button { /*开场对话*/
         background-color: #303030 ;
         border: 3px solid;
         color: white;
@@ -39,6 +39,15 @@ layout: false
         display: inline-block;
         font-size: 18px;
       }
+      .button:active {/*按钮按下效果*/
+        animation-name: buttonPress;
+        animation-duration: 0.4s;
+      }
+      @keyframes buttonPress {
+        from {background-color: #303030;}
+        to {background-color: #505050;}
+      }
+
       #invite { /* 来自坎诺特的邀请弹窗 */
         position: fixed;
         top: 50%;
@@ -52,45 +61,46 @@ layout: false
         text-align: center;
       }
       #ad{
-          width:auto;  /*海报宽度80%*/
+          width:80%;  /*海报宽度80%*/
           position:fixed;	/*相对于浏览器窗口进行绝对定位*/
           top:50%;
   	      left:50%;
   	      transform:translate(-50%,-50%);
       }
       #ad #post{
-   	      height:auto; /*海报高度自适应*/
+   	      height:80%;
       }
       #ad #close{
- 	      height:15px;
+ 	      height:20px;
+        background-color: rgba(255,255,255,0.5);
       }
       #ad #close img{
     	  float:right;	/*关闭键close_img右浮*/
       }
-	  #side-ad {
-		  position: fixed;
-		  top: 20%;
-		  left: 0;
-		  transform: translateY(-50%);
-		  z-index: 998;
-	  }
-	  #side-ad img {
-		  width: 276px;
-		  height: 112px;
-	  }
-    #bottom-ad {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      z-index: 998;
-      width: 100%;
-      height: 17%;
-    }
-    #bottom-ad img {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-    }
+      #side-ad {
+        position: fixed;
+        top: 20%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 998;
+      }
+      #side-ad img {
+        width: 276px;
+        height: 112px;
+      }
+      #bottom-ad {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 998;
+        width: 100%;
+        height: 17%;
+      }
+      #bottom-ad img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
 
     </style>
   </head>
@@ -103,6 +113,17 @@ layout: false
         <button class="button">让我再想想。</button><br><br>
         <button class="button">我决定了！</button><br><br>
         <button class="button">......</button>
+        <!-- 按下按钮后延迟关闭 -->
+        <script type="text/javascript">
+          var buttons = document.getElementsByClassName("button");
+          for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = function() {
+              setTimeout(function() {
+                document.getElementById("invite").close();
+              }, 500);
+            }
+          }
+        </script>
       </form>
     </dialog>
     
@@ -130,7 +151,7 @@ layout: false
     <div id="ad">
       <!-- 海报 -->
       <div id="post">
-        <img src="/img/mizuki.png"/>
+        <img src="/img/amiya_ad.jpg"/>
       </div>
       <!-- 关闭键 -->
       <div id="close">

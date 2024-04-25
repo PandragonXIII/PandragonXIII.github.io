@@ -61,14 +61,15 @@ layout: false
         text-align: center;
       }
       #ad{
-          width:80%;  /*海报宽度80%*/
+          width:60%;  /*海报宽度*/
           position:fixed;	/*相对于浏览器窗口进行绝对定位*/
           top:50%;
   	      left:50%;
   	      transform:translate(-50%,-50%);
+          z-index: 900;
       }
       #ad #post{
-   	      height:80%;
+   	      height:auto;
       }
       #ad #close{
  	      height:20px;
@@ -101,10 +102,31 @@ layout: false
         height: 100%;
         object-fit: fill;
       }
-
+      /* allow video over main picture */
+      #parentDiv{ 
+          position:relative;
+      }
+      #parentDiv img{
+          width:100%;
+      }
+      #video_window{
+        position:absolute;/*所有的子层都是绝对定位*/
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+      }
+      #video_window iframe{
+        display: none;
+        position:absolute;
+        top: 21.67%;
+        z-index:2;
+        left:4.16%;
+        translate: translateX(-4.155%);
+      }
     </style>
   </head>
-  <body>
+  <body overflow="hidden">
     <!-- 来自坎诺特的邀请 -->
     <dialog open id="invite">
       <p>你收到了一封来自坎诺特的邀请函，是否接受？</p>
@@ -162,8 +184,36 @@ layout: false
 	<div id="side-ad">
 		<img src="/img/small_pic.png" alt="left ad">
 	</div>
-  <!-- 主图 -->
-  <img src="/img/long_page.jpg" width="100%" alt="poster">
+
+  <button onclick="play_video()">开始播放</button>
+  <script>
+   function play_video(){
+    if (navigator.userAgent.indexOf("Firefox")>0){
+      // 弹出提示框
+      alert("火狐用户请使用桌面版网站以获得最佳体验")
+    }
+     document.getElementById("video_window iframe").style.display = "block";
+     document.getElementById("video_window iframe").play();
+   }
+  </script>
+  <!-- 主页面 -->
+  <div id="parentDiv" width="100%">
+    <img src="/img/long_page.jpg" alt="poster">
+    <div id="video_window">
+      <iframe id="video_window iframe"
+      src="https://player.bilibili.com/player.html?aid=1152932500&bvid=BV1YZ421e7BB&cid=1499097259&p=0&as_wide=1" 
+      scrolling="no" 
+      border="0"
+      frameborder="no" 
+      framespacing="0" 
+      allowfullscreen="true" 
+      autoplay="false"
+      muted="1"
+      width="91.69%"
+      height="22.58%"
+      > </iframe>
+    </div>
+  </div>
   <!-- 页面底部警告信息 -->
 	<img src="/img/LGD.png" width="100%" alt="LGD warning">
   <!-- white space -->
@@ -172,7 +222,6 @@ layout: false
   <div id="bottom-ad">
     <img src="/img/bottom_pic.png" alt="bottom ad">
   </div>
-
 
 
   </body>

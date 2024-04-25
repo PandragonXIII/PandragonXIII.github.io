@@ -112,7 +112,6 @@
         bottom:0;
       }
       #video_window iframe{
-        display: none;
         position:absolute;
         top: 21.67%;
         z-index:2;
@@ -135,6 +134,7 @@
           var buttons = document.getElementsByClassName("button");
           for (var i = 0; i < buttons.length; i++) {
             buttons[i].onclick = function() {
+              toggleSound(); //播放bgm
               setTimeout(function() {
                 document.getElementById("invite").close();
               }, 500);
@@ -145,15 +145,12 @@
     </dialog>
     
     <!-- 播放ALL!!! -->
-    <audio autoplay id="ALL">
+    <audio id="ALL">
         <source src="/audio/ALL!.mp3" type="audio/mpeg">
       您的浏览器不支持 audio 元素。
     </audio>
     <!-- 自动播放 -->
     <script type="text/javascript">
-        window.onload=function(){
-                 setInterval("toggleSound()",100);
-            }
         function toggleSound() {
                     var music = document.getElementById("ALL");//获取ID  
                         
@@ -183,30 +180,30 @@
   <button onclick="play_video()">开始播放</button>
   <script>
    function play_video(){
-    if (navigator.userAgent.indexOf("Firefox")>0){
+    if (navigator.userAgent.indexOf("Firefox")>0 && 
+      typeof window.orientation !== 'undefined'){ // 判断是否为手机火狐浏览器
       // 弹出提示框
       alert("火狐用户请使用桌面版网站以获得最佳体验")
     }
-     document.getElementById("video_window iframe").style.display = "block";
-     document.getElementById("video_window iframe").play();
+    document.getElementById("ALL").pause();
+    // 点击按钮后新增iframe播放视频
+    var para = document.createElement("iframe");
+    para.id = "video_window iframe";
+    para.src = "https://player.bilibili.com/player.html?aid=1152932500&bvid=BV1YZ421e7BB&cid=1499097259&p=0&t=0&as_wide=1&autoplay=1&muted=0";
+    para.scrolling = "no";
+    para.border = "0";
+    para.frameborder = "no";
+    para.framespacing = "0";
+    para.width = "91.69%";
+    para.height = "22.58%";
+    document.getElementById("video_window").appendChild(para);
    }
   </script>
   <!-- 主页面 -->
   <div id="parentDiv" width="100%">
     <img src="/img/long_page.jpg" alt="poster">
     <div id="video_window">
-      <iframe id="video_window iframe"
-      src="https://player.bilibili.com/player.html?aid=1152932500&bvid=BV1YZ421e7BB&cid=1499097259&p=0&as_wide=1" 
-      scrolling="no" 
-      border="0"
-      frameborder="no" 
-      framespacing="0" 
-      allowfullscreen="true" 
-      autoplay="false"
-      muted="1"
-      width="91.69%"
-      height="22.58%"
-      > </iframe>
+      <!-- iframe video will be added after pressing button -->
     </div>
   </div>
   <!-- 页面底部警告信息 -->

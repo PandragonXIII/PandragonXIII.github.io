@@ -141,6 +141,15 @@
         width:100%;
         height:auto;
       }
+      .divbtn{
+        position: absolute;
+        width: 91.69%;
+        height: 22.58%;
+        top: 21.67%;
+        left:4.16%;
+        translate: translateX(-4.155%);
+        z-index: 999;
+      }
     </style>
   </head>
   <body overflow="hidden">
@@ -226,7 +235,7 @@
     <img src="/img/long_page.jpg" alt="poster">
     <!-- 加入图片作为按钮播放视频 -->
     <div id="VS_button">
-      <img src="/img/VS.png" alt="完事！开打！" onclick="play_video()">
+      <img src="/img/VS.png" alt="完事！开打！">
     </div>
     <!-- 添加闪烁效果 -->
     <script>
@@ -245,6 +254,8 @@
     </script>
     <!-- 视频播放窗口 -->
     <div id="video_window">
+      <!-- 点击窗口范围播放视频 -->
+      <div class="divbtn" onclick="play_video()"></div>
       <!-- iframe video will be added after pressing button -->
     </div>
   </div>
@@ -265,8 +276,8 @@
     // 获取dom对象
     var $ball = document.querySelector('#ball');
     //  设置速度
-    var topSpeed = 5;
-    var leftSpeed = 5;
+    var topSpeed = 3;
+    var leftSpeed = 3;
     //  设置定时器
     setInterval(function () {
         //  获取小球最大移动的宽,高
@@ -291,8 +302,8 @@
       document.getElementById("ALL").pause();
       // 播放音频
       var audio = document.createElement("audio");
-      var audios = ["/audio/dame1.mp3", "/audio/hkpmsdhkp.mp3", "/audio/东方馅挂炒饭.mp3"];
-      var audiolen = [13000, 3000,3000];
+      var audios = ["/audio/dame1.mp3", "/audio/hkpmsdhkp.mp3", "/audio/touhou.mp3"];
+      var audiolen = [13000, 3500,3500];
       //随机选择音频
       var index = Math.floor(Math.random() * audios.length);
       audio.src = audios[index];

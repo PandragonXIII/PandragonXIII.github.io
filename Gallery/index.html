@@ -60,7 +60,7 @@
           top:40%;
   	      left:50%;
   	      transform:translate(-50%,-40%);
-          z-index: 900;
+          z-index: 980;
       }
       #ad #post{
           /* width:20%;  海报宽度 */
@@ -78,7 +78,7 @@
         top: 20%;
         left: 0;
         transform: translateY(-50%);
-        z-index: 998;
+        z-index: 990;
       }
       #side-ad img {
         width: 276px;
@@ -88,7 +88,7 @@
         position: fixed;
         bottom: 0;
         left: 0;
-        z-index: 998;
+        z-index: 990;
         width: 100%;
         height: 17%;
       }
@@ -121,7 +121,7 @@
       #VS_button{
         position:absolute;
         top: 0;
-        z-index:1;
+        z-index:800;
         left:0;
         /* translate: translateX(-4.155%); */
       }
@@ -135,7 +135,7 @@
         position:absolute;
         left:0;
         top:200px;
-        z-index: 900;
+        z-index: 990;
       }
       #ball img{
         width:100%;
@@ -148,7 +148,7 @@
         top: 21.67%;
         left:4.16%;
         translate: translateX(-4.155%);
-        z-index: 999;
+        z-index: 900;
       }
     </style>
   </head>
@@ -216,6 +216,9 @@
       // 弹出提示框
       alert("火狐用户请使用桌面版网站以获得最佳体验")
     }
+    //删除divbtn和VS_button
+    document.getElementsByClassName("divbtn")[0].style.display = "none";
+    document.getElementById("VS_button").style.display = "none";
     document.getElementById("ALL").pause();
     // 点击按钮后新增iframe播放视频
     var para = document.createElement("iframe");

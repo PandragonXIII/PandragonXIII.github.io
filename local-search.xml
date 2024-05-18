@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>gpt4v_local_image_problem</title>
+    <link href="/uncategorized/gpt4v-local-image-problem/"/>
+    <url>/uncategorized/gpt4v-local-image-problem/</url>
+    
+    <content type="html"><![CDATA[<h1id="gpt-4v-上传本地图片报错解决方案-fail-to-decode-image-configwebp">GPT-4v上传本地图片报错解决方案 "fail to decode image config(webp)"</h1><h4 id="问题描述">问题描述</h4><p>如题，博主在使用OpenAIapi调用gpt-4-vision-preview时出现如下报错信息：<code>'error': &#123;'message': 'fail to decode image config(webp): riff: missing RIFF chunk header (request id: xxxxxxx)', 'type': 'new_api_error', 'param': '', 'code': 'count_token_messages_failed'&#125;</code></p><p>经排查发现问题是因为上传的图片格式(bmp)不支持。目前OpenAI支持的图片格式有：<code>JPEG</code>,<code>JPG</code>, <code>PNG</code>, <code>WEBP</code>,(非动图的)<code>GIF</code>。</p><h4 id="解决方案">解决方案</h4><p>要向GPT api上传本地图片，需要使用base64先进行编码，参考<ahref="https://platform.openai.com/docs/guides/vision/uploading-base-64-encoded-images">openaidocument</a>如果本地图片格式不在支持范围内，需要先进行转化，修改后的encode代码如下：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> base64<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> BytesIO<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">encode_image</span>(<span class="hljs-params">image_path</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;convert image to jpeg and encode with base64&quot;&quot;&quot;</span><br>    img = Image.<span class="hljs-built_in">open</span>(image_path).convert(<span class="hljs-string">&quot;RGB&quot;</span>)<br>    im_file = BytesIO()<br>    img.save(im_file, <span class="hljs-built_in">format</span>=<span class="hljs-string">&quot;JPEG&quot;</span>)<br>    im_bytes = im_file.getvalue()  <span class="hljs-comment"># im_bytes: image in binary format.</span><br>    <span class="hljs-keyword">return</span> base64.b64encode(im_bytes).decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br></code></pre></td></tr></table></figure> 然后按文档传入<code>image_url</code>中对应位置即可。</p><p>示例： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">base64_image = encode_image(image_filename)<br>response = client.chat.completions.create(<br>    model=<span class="hljs-string">&quot;gpt-4-vision-preview&quot;</span>,<br>    messages=[<br>        &#123;<br>        <span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>,<br>        <span class="hljs-string">&quot;content&quot;</span>: [<br>            &#123;<span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;text&quot;</span>, <span class="hljs-string">&quot;text&quot;</span>: text&#125;,<br>            &#123;<span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;image_url&quot;</span>,<br>            <span class="hljs-string">&quot;image_url&quot;</span>: &#123;<span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">f&quot;data:image/jpeg;base64,<span class="hljs-subst">&#123;base64_image&#125;</span>&quot;</span>,<br>                            <span class="hljs-string">&quot;detail&quot;</span>: <span class="hljs-string">&quot;low&quot;</span>&#125;,<br>            &#125;<br>        ],<br>        &#125;<br>    ],<br>    max_tokens=<span class="hljs-number">300</span><br>)<br>answer = response.choices[<span class="hljs-number">0</span>].message.content<br></code></pre></td></tr></table></figure></p><p>以上。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>GPT-4v, api error, fail to decode image config</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>llava-embedding</title>
     <link href="/report/llava-embedding/"/>
     <url>/report/llava-embedding/</url>

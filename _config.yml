@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://blog.madmiku.fun/
+url: https://pandragonxiii.github.io/
 permalink: :category/:title/
 permalink_defaults:
   category: other
@@ -84,7 +84,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -112,8 +112,8 @@ ignore:
 theme: fluid
 
 # Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
+## Docs: https://hexo.io/zh-cn/docs/one-command-deployment
 deploy:
   type: git
-  repository: http://github.com/PandragonXIII/PandragonXIII.github.io.git
+  repo: https://github.com/PandragonXIII/PandragonXIII.github.io.git
   branch: main

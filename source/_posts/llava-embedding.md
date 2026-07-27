@@ -1,6 +1,8 @@
 ---
 title: llava-embedding
-tags: report, ASPIRE
+tags:
+- report
+- ASPIRE
 category:
   - report
 presentation:

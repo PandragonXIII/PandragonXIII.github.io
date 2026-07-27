@@ -19,9 +19,8 @@ layout: false
 </div> -->
 <html lang="en">
   <head>
-    <meta charset="UTF-8"
-		name="viewport" 
-		content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>好得不能再好了！泰拉投资大师课</title>    
     <style type="text/css">
       *{
@@ -65,7 +64,7 @@ layout: false
           top:40%;
   	      left:50%;
   	      transform:translate(-50%,-40%);
-          z-index: 900;
+          z-index: 980;
       }
       #ad #post{
           /* width:20%;  海报宽度 */
@@ -83,7 +82,7 @@ layout: false
         top: 20%;
         left: 0;
         transform: translateY(-50%);
-        z-index: 998;
+        z-index: 990;
       }
       #side-ad img {
         width: 276px;
@@ -93,7 +92,7 @@ layout: false
         position: fixed;
         bottom: 0;
         left: 0;
-        z-index: 998;
+        z-index: 990;
         width: 100%;
         height: 17%;
       }
@@ -121,12 +120,12 @@ layout: false
         top: 21.67%;
         z-index:2;
         left:4.16%;
-        translate: translateX(-4.155%);
+        transform: translateX(-4.155%);
       }
       #VS_button{
         position:absolute;
         top: 0;
-        z-index:1;
+        z-index:800;
         left:0;
         /* translate: translateX(-4.155%); */
       }
@@ -140,15 +139,24 @@ layout: false
         position:absolute;
         left:0;
         top:200px;
-        z-index: 900;
+        z-index: 990;
       }
       #ball img{
         width:100%;
         height:auto;
       }
+      .divbtn{
+        position: absolute;
+        width: 91.69%;
+        height: 22.58%;
+        top: 21.67%;
+        left:4.16%;
+        transform: translateX(-4.155%);
+        z-index: 900;
+      }
     </style>
   </head>
-  <body overflow="hidden">
+  <body>
     <!-- 来自坎诺特的邀请 -->
     <dialog open id="invite">
       <p>你收到了一封来自坎诺特的邀请函，是否接受？</p>
@@ -161,8 +169,10 @@ layout: false
         <script type="text/javascript">
           var buttons = document.getElementsByClassName("button");
           for (var i = 0; i < buttons.length; i++) {
+            /** Starts the background audio and closes the invitation dialog. */
             buttons[i].onclick = function() {
               toggleSound(); //播放bgm
+              /** Closes the invitation after the button feedback finishes. */
               setTimeout(function() {
                 document.getElementById("invite").close();
               }, 500);
@@ -179,6 +189,7 @@ layout: false
     </audio>
     <!-- 自动播放 -->
     <script type="text/javascript">
+        /** Starts the background track when it is currently paused. */
         function toggleSound() {
                     var music = document.getElementById("ALL");//获取ID  
                         
@@ -206,12 +217,16 @@ layout: false
 	</div>
 
   <script>
+   /** Replaces the video overlay with an autoplaying Bilibili player. */
    function play_video(){
     if (navigator.userAgent.indexOf("Firefox")>0 && 
       typeof window.orientation !== 'undefined'){ // 判断是否为手机火狐浏览器
       // 弹出提示框
       alert("火狐用户请使用桌面版网站以获得最佳体验")
     }
+    //删除divbtn和VS_button
+    document.getElementsByClassName("divbtn")[0].style.display = "none";
+    document.getElementById("VS_button").style.display = "none";
     document.getElementById("ALL").pause();
     // 点击按钮后新增iframe播放视频
     var para = document.createElement("iframe");
@@ -231,13 +246,14 @@ layout: false
     <img src="/img/long_page.jpg" alt="poster">
     <!-- 加入图片作为按钮播放视频 -->
     <div id="VS_button">
-      <img src="/img/VS.png" alt="完事！开打！" onclick="play_video()">
+      <img src="/img/VS.png" alt="完事！开打！">
     </div>
     <!-- 添加闪烁效果 -->
     <script>
       var VS_button = document.getElementById("VS_button");
       var img = VS_button.getElementsByTagName("img")[0];
       var flag = 0;
+      /** Alternates the play-button opacity to create a blinking prompt. */
       setInterval(function() {
         if (flag == 0) {
           img.style.opacity = 0;
@@ -250,6 +266,8 @@ layout: false
     </script>
     <!-- 视频播放窗口 -->
     <div id="video_window">
+      <!-- 点击窗口范围播放视频 -->
+      <div class="divbtn" onclick="play_video()"></div>
       <!-- iframe video will be added after pressing button -->
     </div>
   </div>
@@ -270,9 +288,10 @@ layout: false
     // 获取dom对象
     var $ball = document.querySelector('#ball');
     //  设置速度
-    var topSpeed = 5;
-    var leftSpeed = 5;
+    var topSpeed = 3;
+    var leftSpeed = 3;
     //  设置定时器
+    /** Moves the floating image and reverses it at viewport edges. */
     setInterval(function () {
         //  获取小球最大移动的宽,高
         var maxTop = document.documentElement.clientHeight - $ball.offsetHeight;
@@ -291,23 +310,26 @@ layout: false
   <!-- 点击图片播放音频 -->
   <script>
     var ball = document.getElementById("ball");
+    /** Plays one random voice clip, then resumes the background track. */
     ball.onclick = function(){
       // 静音其他
       document.getElementById("ALL").pause();
       // 播放音频
       var audio = document.createElement("audio");
-      var audios = ["/audio/dame1.mp3", "/audio/hkpmsdhkp.mp3", "/audio/东方馅挂炒饭.mp3"];
-      var audiolen = [13000, 3000,3000];
+      var audios = ["/audio/dame1.mp3", "/audio/hkpmsdhkp.mp3", "/audio/touhou.mp3"];
+      var audiolen = [13000, 3500, 4000];
       //随机选择音频
       var index = Math.floor(Math.random() * audios.length);
       audio.src = audios[index];
       audio.autoplay = true;
       document.body.appendChild(audio);
       // 播放完毕后移除音频
+      /** Removes the temporary audio element after playback. */
       audio.onended = function(){
         document.body.removeChild(audio);
       }
       //播放其他
+      /** Resumes the background track after the selected clip duration. */
       setTimeout(function(){
         document.getElementById("ALL").play();
       }, audiolen[index]);
@@ -321,9 +343,11 @@ layout: false
     var post = document.getElementById("post");
     var ad = document.getElementById("ad");
     //关闭广告
+    /** Hides the floating advertisement. */
     close.onclick = function(){
       ad.style.display = "none";
     }
+    /** Hides the advertisement when its poster is selected. */
     post.onclick = function(){
       ad.style.display = "none";
     }

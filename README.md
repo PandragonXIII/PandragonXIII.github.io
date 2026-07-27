@@ -84,7 +84,12 @@ npm run deploy
 ```
 
 `npm run deploy` 会依次清理缓存、生成静态文件，并通过
-`hexo-deployer-git` 更新远端 `main`。不要提交 `.deploy_git/` 或 `public/`。
+`hexo-deployer-git` 更新远端 `main`。部署器还会把 Pages workflow 一起复制到
+`main`；GitHub Actions 随后上传这些静态文件并发布站点。通常等待几十秒后即可在
+<https://pandragonxiii.github.io/> 查看新版本。
+
+不要手动提交 `.deploy_git/` 或 `public/`。如果要查看发布进度，请打开仓库的
+**Actions** 页面并选择 **Publish static site to Pages**。
 
 如部署时 GitHub 要求认证，请使用 Git Credential Manager、SSH，或具有仓库写权限的
 令牌；不要把令牌写进 `_config.yml`。

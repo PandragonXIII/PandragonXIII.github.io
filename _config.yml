@@ -117,3 +117,10 @@ deploy:
   type: git
   repo: https://github.com/PandragonXIII/PandragonXIII.github.io.git
   branch: main
+  name: XIII
+  email: XIII@126.com
+  extend_dirs:
+    - .github
+  ignore_hidden:
+    public: false
+    .github: false

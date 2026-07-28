@@ -1,0 +1,17 @@
+[project]
+name = "utopia-publisher"
+version = "0.1.0"
+description = "Export selected Obsidian notes into the Utopia Hexo site"
+requires-python = ">=3.12"
+dependencies = [
+  "pyyaml>=6.0.2,<7",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4,<9",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

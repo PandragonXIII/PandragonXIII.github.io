@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "uv run python publisher/obsidian_publish.py build",
     "clean": "hexo clean",
-    "deploy": "hexo clean && hexo generate && hexo deploy",
+    "deploy": "uv run python publisher/obsidian_publish.py deploy",
     "new": "hexo new",
-    "server": "hexo server"
+    "notes:check": "uv run python publisher/obsidian_publish.py check",
+    "server": "uv run python publisher/obsidian_publish.py serve"
   },
   "engines": {
     "node": ">=18"

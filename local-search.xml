@@ -17,13 +17,19 @@
   
   
   <entry>
-    <title>测试帖子</title>
-    <link href="/uncategorized/260728testing/"/>
-    <url>/uncategorized/260728testing/</url>
+    <title>未命名</title>
+    <link href="/uncategorized/unique-name/"/>
+    <url>/uncategorized/unique-name/</url>
     
-    <content type="html"><![CDATA[<p>test content 123</p><p><a href="https://store.steampowered.com/">https://store.steampowered.com/</a></p><p>![Pasted image 20260728162837](Pasted image 20260728162837.png) </p>]]></content>
+    <content type="html"><![CDATA[<p>123456</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>tag1</tag>
+      
+    </tags>
     
   </entry>
   

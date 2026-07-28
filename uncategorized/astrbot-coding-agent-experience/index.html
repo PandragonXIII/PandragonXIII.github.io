@@ -19,28 +19,24 @@
   <meta name="author" content="XIII">
   <meta name="keywords" content="Note assignment kigurumi kig">
   
-    <meta name="description" content="论文笔记 RECALL: A Benchmark for LLMs Robustness against External Counterfactual Knowledge要点概括目的：to evaluate the ability of LLMs to discern the reliability of external knowledge Introductionwe expect them">
+    <meta name="description" content="大纲 使用体验 生活与科研的割裂   理想的Agent 稳定性 自迭代 环境与上下文感知   如何保障长期的使用体验 记忆, 习惯, 迭代经验的迁移">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RECALL-note">
-<meta property="og:url" content="https://pandragonxiii.github.io/uncategorized/RECALL-note/">
+<meta property="og:title" content="Astrbot与Coding Agent使用体验与思考">
+<meta property="og:url" content="https://pandragonxiii.github.io/uncategorized/astrbot-coding-agent-experience/">
 <meta property="og:site_name" content="Utopia">
-<meta property="og:description" content="论文笔记 RECALL: A Benchmark for LLMs Robustness against External Counterfactual Knowledge要点概括目的：to evaluate the ability of LLMs to discern the reliability of external knowledge Introductionwe expect them">
+<meta property="og:description" content="大纲 使用体验 生活与科研的割裂   理想的Agent 稳定性 自迭代 环境与上下文感知   如何保障长期的使用体验 记忆, 习惯, 迭代经验的迁移">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pandragonxiii.github.io/image-20241230115130734.png">
-<meta property="article:published_time" content="2024-12-30T02:36:18.000Z">
-<meta property="article:modified_time" content="2024-12-30T02:36:18.000Z">
+<meta property="article:published_time" content="2026-07-27T09:25:43.000Z">
+<meta property="article:modified_time" content="2026-07-27T09:25:43.000Z">
 <meta property="article:author" content="XIII">
-<meta property="article:tag" content="RAG">
-<meta property="article:tag" content="RECALL">
-<meta property="article:tag" content="note">
+<meta property="article:tag" content="Note assignment kigurumi kig">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://pandragonxiii.github.io/image-20241230115130734.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>RECALL-note - Utopia</title>
+  <title>Astrbot与Coding Agent使用体验与思考 - Utopia</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -335,7 +331,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="RECALL-note"></span>
+            <span id="subtitle" data-typed-text="Astrbot与Coding Agent使用体验与思考"></span>
           
         </div>
 
@@ -346,8 +342,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-30 10:36" pubdate>
-          2024年12月30日 上午
+        <time datetime="2026-07-27 17:25" pubdate>
+          2026年7月27日 下午
         </time>
       </span>
     
@@ -358,7 +354,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          60 字
         
       </span>
     
@@ -369,7 +365,7 @@
         
         
         
-          11 分钟
+          1 分钟
         
       </span>
     
@@ -408,66 +404,28 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">RECALL-note</h1>
+            <h1 id="seo-header">Astrbot与Coding Agent使用体验与思考</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="论文笔记-RECALL-A-Benchmark-for-LLMs-Robustness-against-External-Counterfactual-Knowledge"><a href="#论文笔记-RECALL-A-Benchmark-for-LLMs-Robustness-against-External-Counterfactual-Knowledge" class="headerlink" title="论文笔记 RECALL: A Benchmark for LLMs Robustness against External Counterfactual Knowledge"></a>论文笔记 RECALL: A Benchmark for LLMs Robustness against External Counterfactual Knowledge</h1><h2 id="要点概括"><a href="#要点概括" class="headerlink" title="要点概括"></a>要点概括</h2><p>目的：to evaluate the ability of LLMs to discern the reliability of external knowledge</p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>we expect them to <strong>generate trustworthy responses</strong> to user queries regardless of the quality of given information. In other words, we hope to assess the <strong>robustness of LLMs against external counterfactual knowledge</strong> in order to generate the right answers for user inputs.<br>create a benchmark <strong>from existing datasets</strong> by** adding counterfactual information** into original samples through ChatGPT<br>two <strong>existing methods fail</strong> to effectively alleviate the problem</p>
-<h3 id="Benchmark-Construction"><a href="#Benchmark-Construction" class="headerlink" title="Benchmark Construction"></a>Benchmark Construction</h3><p>作者的一些假设：</p>
-<ol>
-<li>外部知识是从互联网上搜索得到的，因此会含有不实信息</li>
-<li>理论上模型无法分辨不实信息，所以关注外部（不实）信息与内部知识冲突的情况</li>
-<li>有两种主要的提问方式<ol>
-<li>seeks for certain specific attributes of an entity or event like the winner of a football game or the reasons for a phenomenon</li>
-<li>hopes to get a brief description about an object like an introduction to a physical term.<br>因此他们设置了QA和Text Generation两类任务，同时考虑QA问题中不实信息的位置，也分为两种</li>
-<li>QA-A: 文档中问题的答案是错误的</li>
-<li>QA-NA: 文档中答案正确但有其他事实错误</li>
-</ol>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>tasks</th>
-<th>QA</th>
-<th>Text Generation</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Dataset</td>
-<td>EventKG</td>
-<td>UJ</td>
-</tr>
-<tr>
-<td>preprocess</td>
-<td>structured data-&gt;paragraph</td>
-<td>5 non-overlap sentences</td>
-</tr>
-<tr>
-<td></td>
-<td>提供正确和错误选项二选一</td>
-<td>根据提供的信息用一句话概括对象的定义</td>
-</tr>
-</tbody></table>
-<h3 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h3><p>3 scenarios:</p>
-<ol>
-<li>提供正确doc</li>
-<li>提供更改过（错误）的doc</li>
-<li>不提供doc</li>
-</ol>
-<p><img src="/image-20241230115130734.png" srcset="/img/loading.gif" lazyload alt="image-20241230115130734"></p>
-<h4 id="Metrix"><a href="#Metrix" class="headerlink" title="Metrix"></a>Metrix</h4><p>对于QA：使用ACC和M-Rate</p>
-<blockquote>
-<p><strong>M-Rate</strong> is the proportion of the queries that the model answers wrongly with edited contexts in all queries that the model can answer correctly without external knowledge.</p>
-</blockquote>
-<p>对于生成：</p>
-<ul>
-<li>使用BLEU，ROUGE-L评估生成质量</li>
-<li>使用R-Rate评估鲁棒性（proportion of edited words appearing in the model’s outputs in all edited words.（in EventKG））</li>
+                <h1 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h1><ul>
+<li>使用体验<ul>
+<li>生活与科研的割裂</li>
 </ul>
-<h4 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h4>
+</li>
+<li>理想的Agent<ul>
+<li>稳定性</li>
+<li>自迭代</li>
+<li>环境与上下文感知</li>
+</ul>
+</li>
+<li>如何保障长期的使用体验<ul>
+<li>记忆, 习惯, 迭代经验的迁移</li>
+</ul>
+</li>
+</ul>
+
                 
               </div>
             
@@ -475,17 +433,6 @@
             <div>
               <div class="post-metas my-3">
   
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/RAG/" class="print-no-link">#RAG</a>
-      
-        <a href="/tags/RECALL/" class="print-no-link">#RECALL</a>
-      
-        <a href="/tags/note/" class="print-no-link">#note</a>
-      
-    </div>
   
 </div>
 
@@ -495,15 +442,15 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>RECALL-note</div>
-      <div>https://pandragonxiii.github.io/uncategorized/RECALL-note/</div>
+      <div>Astrbot与Coding Agent使用体验与思考</div>
+      <div>https://pandragonxiii.github.io/uncategorized/astrbot-coding-agent-experience/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月30日</div>
+          <div>2026年7月27日</div>
         </div>
       
       
@@ -535,9 +482,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/uncategorized/OpenClaw/" title="OpenClaw">
+                      <a href="/uncategorized/holiday-fog-metaphysics/" title="假日,雾和元物理学">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">OpenClaw</span>
+                        <span class="hidden-mobile">假日,雾和元物理学</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -545,8 +492,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/uncategorized/animation-final/" title="动画基础期末project">
-                        <span class="hidden-mobile">动画基础期末project</span>
+                      <a href="/uncategorized/openclaw/" title="OpenClaw">
+                        <span class="hidden-mobile">OpenClaw</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
